@@ -5,46 +5,49 @@ import { Subject } from 'rxjs/Subject';
 
 import { TokenStorage } from './token.storage';
 import { TooltipComponent } from '@angular/material';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http : HttpClient, private token: TokenStorage) {}
+  constructor(private http: HttpClient, private token: TokenStorage) {}
 
   public $userSource = new Subject<any>();
 
-  login(email : string, password : string) : Observable <any> {
+  login(email: string, password: string): Observable <any> {
     return Observable.create(observer => {
-      this.http.post('/api/auth/login', {
+      this.http.post(environment.endPoint + 'auth/login', {
         email,
         password
-      }).subscribe((data : any) => {
+      }).subscribe((data: any) => {
           observer.next({user: data.user});
           this.setUser(data.user);
           this.token.saveToken(data.token);
           observer.complete();
-      })
+      });
     });
   }
 
-  register(fullname : string, email : string, password : string, repeatPassword : string) : Observable <any> {
+  register(fullname: string, email: string, password: string, repeatPassword: string): Observable <any> {
     return Observable.create(observer => {
-      this.http.post('/api/auth/register', {
+      this.http.post(environment.endPoint + 'auth/register', {
         fullname,
         email,
         password,
         repeatPassword
-      }).subscribe((data : any) => {
+      }).subscribe((data: any) => {
         observer.next({user: data.user});
         this.setUser(data.user);
         this.token.saveToken(data.token);
         observer.complete();
-      })
+      });
     });
   }
 
   setUser(user): void {
-    if (user) user.isAdmin = (user.roles.indexOf('admin') > -1);
+    if (user) {
+      user.isAdmin = (user.roles.indexOf('admin') > -1);
+    }
     this.$userSource.next(user);
     (<any>window).user = user;
   }
@@ -56,12 +59,14 @@ export class AuthService {
   me(): Observable<any> {
     return Observable.create(observer => {
       const tokenVal = this.token.getToken();
-      if (!tokenVal) return  observer.complete();
-      this.http.get('/api/auth/me').subscribe((data : any) => {
+      if (!tokenVal) {
+        return  observer.complete();
+      }
+      this.http.get(environment.endPoint + 'auth/me').subscribe((data: any) => {
         observer.next({user: data.user});
         this.setUser(data.user);
         observer.complete();
-      })
+      });
     });
   }
 

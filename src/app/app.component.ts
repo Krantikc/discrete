@@ -1,12 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { MatIconRegistry } from "@angular/material";
-import { DomSanitizer } from "@angular/platform-browser";
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 import { AuthService } from './auth/auth.service';
+import { SharedService } from './shared/services/shared.service';
 import * as schema from './schema/equipment.json';
+import { Subject } from 'rxjs';
+
+const THEMES = {
+  'teal': 'cafe-teal',
+  'pink': 'cafe-pink'
+};
 
 @Component({
   selector: 'app-root',
@@ -18,13 +25,24 @@ export class AppComponent implements OnInit {
   private userSubscription: Subscription;
   public user: any;
 
+  theme: any;
+
   constructor(
     private authService: AuthService,
     private router: Router,
     private domSanitizer: DomSanitizer,
-    private matIconRegistry: MatIconRegistry
+    private matIconRegistry: MatIconRegistry,
+    private sharedService: SharedService
   ) {
-    this.registerSvgIcons()
+    this.registerSvgIcons();
+
+    this.sharedService.themeChange.subscribe((theme: any) => {
+      this.theme = THEMES[theme];
+      localStorage.setItem('theme', theme);
+    });
+
+    const localTheme = localStorage.getItem('theme');
+    this.theme = localTheme ? THEMES[localTheme] : THEMES['teal'];
   }
 
   public ngOnInit() {
@@ -49,7 +67,7 @@ export class AppComponent implements OnInit {
     this.router.navigate([link]);
   }
 
-  ngOnDestroy() { 
+  ngOnDestroy() {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
     }
@@ -90,7 +108,7 @@ export class AppComponent implements OnInit {
       'trolleybus',
       'water-transportation',
     ].forEach((icon) => {
-      this.matIconRegistry.addSvgIcon(icon, this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/${icon}.svg`))
+      this.matIconRegistry.addSvgIcon(icon, this.domSanitizer.bypassSecurityTrustResourceUrl(`assets/icons/${icon}.svg`));
     });
   }
 

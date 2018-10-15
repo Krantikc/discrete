@@ -1,0 +1,34 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$cafe-teal-primary: mat-palette($mat-teal, 400);
+$cafe-teal-accent: mat-palette($mat-pink, 200);
+$cafe-teal-theme: mat-light-theme($cafe-teal-primary, $cafe-teal-accent);
+
+$cafe-pink-primary: mat-palette($mat-pink, 400);
+$cafe-pink-accent: mat-palette($mat-teal, 200);
+$cafe-pink-theme: mat-light-theme($cafe-pink-primary, $cafe-pink-accent);
+
+// $primary: mat-color($cafe-pink-primary);
+// $accent: mat-color($cafe-pink-accent);
+
+.cafe-teal {
+    .bg-color {
+        background-color: mat-color($cafe-teal-primary);
+    }
+    $primary: mat-color($cafe-teal-primary);
+    $accent: mat-color($cafe-teal-accent);
+    @include angular-material-theme($cafe-teal-theme);
+}
+
+.cafe-pink {
+
+    .bg-color {
+        background-color: mat-color($cafe-pink-primary);
+    }
+    $primary: mat-color($cafe-pink-primary);
+    $accent: mat-color($cafe-pink-accent);
+    @include angular-material-theme($cafe-pink-theme);
+}
+
+

@@ -1,2 +1,8 @@
 .wrapper-app {
+    padding: 25px;
+    margin-top: 50px;
+    height: calc(100vh - 100px);
+}
+.overlay {
+    background-image: url('../assets/background.jpg');
 }

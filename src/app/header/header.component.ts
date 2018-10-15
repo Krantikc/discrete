@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
+import { Subject } from 'rxjs';
+import { SharedService } from '../shared/services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +14,14 @@ export class HeaderComponent implements OnInit {
 
   @Input() user: any = {};
 
+  @Output() themeChange: any;
+
+  theme: Subject<any> = new Subject<any>();
+
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
@@ -27,6 +34,11 @@ export class HeaderComponent implements OnInit {
 
   navigate(link): void {
     this.router.navigate([link]);
+  }
+
+  changeTheme(theme: string): void {
+    this.sharedService
+        .themeChange.next(theme);
   }
 
 }

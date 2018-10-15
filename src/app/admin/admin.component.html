@@ -1,1 +1,40 @@
-<h4>HELLO FROM ADMIN PAGE</h4>
+
+
+<div class="container">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%">
+        <div fxFlex="100%" class="containter-title">Manage Users</div>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <div fxFlex="100%" class="mat-elevation-z8">  
+            <table mat-table [dataSource]="usersList">
+            
+                <!-- Fullname Column -->
+                <ng-container matColumnDef="fullname">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.fullname}} </td>
+                </ng-container>
+            
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+            
+                <!-- Roles Column -->
+                <ng-container matColumnDef="roles">
+                    <th mat-header-cell *matHeaderCellDef> Roles </th>
+                    <td mat-cell *matCellDef="let element"> {{element.roles.join(', ')}} </td>
+                </ng-container>
+            
+                <!-- Created Date Column -->
+                <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef> Created Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+                </ng-container>
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>
