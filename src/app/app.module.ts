@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
+import { ReposComponent } from './dashboard/repos/repos.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UserComponent } from './user/user.component';
     HeaderComponent,
     DashboardComponent,
     UserComponent,
+    ReposComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { UserComponent } from './user/user.component';
     useClass: CatchErrorInterceptor,
     multi: true,
   }],
-  entryComponents: [],
+  entryComponents: [ReposComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

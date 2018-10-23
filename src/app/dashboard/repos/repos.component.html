@@ -1,0 +1,25 @@
+
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%">
+    <div fxFlex="100%" class="title" mat-dialog-title color="accent">Repositories</div>
+  </div>
+  <div fxLayout="row" 
+       fxLayout.xs="column" 
+       fxLayoutWrap 
+       fxLayoutGap="0.5%" 
+       fxLayoutAlign="center"
+       mat-dialog-content>
+    <div fxFlex="100%" class="repos-list"> 
+      <mat-list>
+        <div *ngFor="let repo of repos" class="repo-link">
+            <mat-list-item>
+              <a [href]="repo.html_url" target="_blank">{{repo.name}}</a>
+            </mat-list-item>
+        </div>
+      </mat-list>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+   
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="close()">Close</button>
+  </div>

@@ -14,7 +14,10 @@ $cafe-pink-theme: mat-light-theme($cafe-pink-primary, $cafe-pink-accent);
 
 .cafe-teal {
     .bg-color {
-        background-color: mat-color($cafe-teal-primary);
+        background-color: mat-color($cafe-teal-primary) !important;
+    }
+    .bg-color-accent {
+        background-color: mat-color($cafe-teal-accent) !important;
     }
     $primary: mat-color($cafe-teal-primary);
     $accent: mat-color($cafe-teal-accent);
@@ -24,7 +27,10 @@ $cafe-pink-theme: mat-light-theme($cafe-pink-primary, $cafe-pink-accent);
 .cafe-pink {
 
     .bg-color {
-        background-color: mat-color($cafe-pink-primary);
+        background-color: mat-color($cafe-pink-primary) !important;
+    }
+    .bg-color-accent {
+        background-color: mat-color($cafe-pink-accent) !important;
     }
     $primary: mat-color($cafe-pink-primary);
     $accent: mat-color($cafe-pink-accent);

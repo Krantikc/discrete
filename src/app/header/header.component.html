@@ -1,6 +1,10 @@
 <header>
   <mat-toolbar color="primary">
-    <a class="tabs ripple" *ngIf="user" [routerLink]="['/']">Dashboard</a>
+    <a class="tabs" 
+    matRipple
+    [matRippleColor]="'rgba(255,255,255,0.3)'"
+    [matRippleRadius]="40"
+    *ngIf="user" [routerLink]="['/']">Dashboard</a>
     <span class="example-spacer"></span>
     <div>
       <a class="links side" [matMenuTriggerFor]="theme">

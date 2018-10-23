@@ -21,7 +21,10 @@ const localLogin = new LocalStrategy({
 
 const jwtLogin = new JwtStrategy({
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: config.jwtSecret
+  secretOrKey: config.jwtSecret,
+  maxAge: '1m',
+  exp: 10,
+  expiresIn: '1m'
 }, async (payload, done) => {
   let user = await User.findById(payload._id);
   if (!user) {

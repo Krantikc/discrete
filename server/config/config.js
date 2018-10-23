@@ -8,7 +8,7 @@ const envVarsSchema = Joi.object({
   NODE_ENV: Joi.string()
     .allow(['development', 'production', 'test', 'provision'])
     .default('development'),
-  SERVER_PORT: Joi.number()
+  PORT: Joi.number()
     .default(4040),
   MONGOOSE_DEBUG: Joi.boolean()
     .when('NODE_ENV', {
@@ -21,7 +21,13 @@ const envVarsSchema = Joi.object({
   MONGO_HOST: Joi.string().required()
     .description('Mongo DB host url'),
   MONGO_PORT: Joi.number()
-    .default(27017)
+    .default(27017),
+  TOKEN_EXPIRATION: Joi.string()
+  .default('20s'),
+  CLIENT_ID: Joi.string().required()
+  .description('Client ID required for github'),
+  CLIENT_SECRET: Joi.string().required()
+  .description('Client Secret required for github')
 }).unknown()
   .required();
 
@@ -32,14 +38,17 @@ if (error) {
 
 const config = {
   env: envVars.NODE_ENV,
-  port: envVars.SERVER_PORT,
+  port: envVars.PORT,
   mongooseDebug: envVars.MONGOOSE_DEBUG,
   jwtSecret: envVars.JWT_SECRET,
   frontend: envVars.MEAN_FRONTEND || 'angular',
   mongo: {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
-  }
+  },
+  tokenExpiration: envVars.TOKEN_EXPIRATION,
+  clientID: envVars.CLIENT_ID,
+  clientSectret: envVars.CLIENT_SECRET
 };
 
 module.exports = config;
