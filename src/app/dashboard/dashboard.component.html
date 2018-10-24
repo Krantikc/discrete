@@ -4,11 +4,11 @@
   </div>
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <div fxFlex="100%" class="mat-elevation-z8"> 
-      <mat-grid-list cols="4" rowHeight="1:1" gutterSize="20">
+      <!-- <mat-grid-list cols="4" rowHeight="1:1" gutterSize="20">
         <mat-grid-tile *ngFor="let user of gitUsers" class="user bg-color-accent">
           <mat-card class="" >
               <div class="inline">
-                <img mat-card-md-image [src]="user.avatar_url">
+                <img mat-card-md-image [src]="user.avatar_url" class="avatar">
               </div>
               <div class="inline actions">
                 <button mat-button (click)="showRepos(user)">Repos</button>
@@ -17,7 +17,24 @@
               
           </mat-card>
         </mat-grid-tile> 
-      </mat-grid-list>
+      </mat-grid-list> -->
+
+      <div fxLayout='row wrap' fxLayoutAlign="center">
+        <div  fxFlex="23%" fxFlex.sm="40%" fxFlex.xs="70%" *ngFor="let user of gitUsers" class="user bg-color-accent">
+          <mat-card class="" >
+              <div class="inline">
+                <img mat-card-md-image [src]="user.avatar_url" class="avatar">
+              </div>
+              <div class="inline actions">
+                <button mat-button (click)="showRepos(user)">Repos</button>
+              </div>
+              <div class="login-name" >{{user.login}}</div>
+              
+          </mat-card>
+        </div> 
+      </div>
+
+      
     </div>
   </div>
 </div>

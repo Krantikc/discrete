@@ -9,8 +9,9 @@ $cafe-pink-primary: mat-palette($mat-pink, 400);
 $cafe-pink-accent: mat-palette($mat-teal, 200);
 $cafe-pink-theme: mat-light-theme($cafe-pink-primary, $cafe-pink-accent);
 
-// $primary: mat-color($cafe-pink-primary);
-// $accent: mat-color($cafe-pink-accent);
+$warn: mat-color($mat-pink, 200);
+$primary: mat-color($cafe-pink-primary);
+$accent: mat-color($cafe-pink-accent);
 
 .cafe-teal {
     .bg-color {

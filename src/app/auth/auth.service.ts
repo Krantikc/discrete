@@ -24,6 +24,10 @@ export class AuthService {
           this.setUser(data.user);
           this.token.saveToken(data.token);
           observer.complete();
+      }, (error: any) => {
+        if (error.status === 401) {
+          return observer.next(error);
+        }
       });
     });
   }

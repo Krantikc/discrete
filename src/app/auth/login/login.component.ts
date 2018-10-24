@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import {AuthService} from '../auth.service';
+import { AuthService } from '../auth.service';
+import { AuthGuard } from '../auth-guard.service';
+import 'rxjs/add/operator/catch';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,19 +13,39 @@ import {AuthService} from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,
+              private authGuard: AuthGuard) { }
 
   email: string;
   password: string;
+  errorMsg: string;
+  processing: boolean;
 
   ngOnInit() {
+    if (this.authGuard.canActivate()) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   login(): void {
+    this.errorMsg = null;
+    this.processing = true;
     this.authService.login(this.email, this.password)
-    .subscribe(data => {
-      this.router.navigate(['/']);
-    })
+    .subscribe(
+      (data: any) => {
+        if (data instanceof HttpErrorResponse) {
+          this.errorMsg = 'Invalid email or password';
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
+        this.processing = false;
+      },
+      (error: any) => {
+        this.errorMsg = error;
+      },
+      () => {
+        this.processing = false;
+      }
+    );
   }
-
 }

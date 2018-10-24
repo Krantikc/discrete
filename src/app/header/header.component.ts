@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() themeChange: any;
 
-  theme: Subject<any> = new Subject<any>();
+  selectedTheme = 'pink';
 
   constructor(
     private authService: AuthService,
@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeTheme(theme: string): void {
+    this.selectedTheme = theme;
     this.sharedService
         .themeChange.next(theme);
   }

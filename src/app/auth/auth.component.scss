@@ -1,3 +1,5 @@
+@import '../../themes.scss';
+
 .login {
   margin-top: 50px;
   .login-container {
@@ -14,5 +16,19 @@
     padding: 15px !important;
     button {
         margin-right: 10px;
+        color: #fff;
     }
+}
+
+.spinner {
+    z-index: 9;
+    margin-top: 10px;
+    margin-left: 7px;
+    position: absolute;
+}
+
+.error-msg {
+    color: $warn;
+    text-align: center;
+    font-size: 16px;
 }

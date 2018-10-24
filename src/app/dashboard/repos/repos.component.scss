@@ -1,3 +1,5 @@
+@import '../../../themes.scss';
+
 .title {
     color: #000;
     font-family: sans-serif;
@@ -15,7 +17,7 @@
     .repo-link {
         border-bottom: 1px solid #EBEBEB;
         &:hover {
-            background: rgb(232, 232, 232);
+            background: $accent;
         }
     }
 

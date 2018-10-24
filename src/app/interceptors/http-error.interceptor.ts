@@ -16,7 +16,7 @@ export class CatchErrorInterceptor implements HttpInterceptor {
       .handle(request)
       .do
         ((event: HttpEvent < any >) => {}, (err: any) => {
-          if (err instanceof HttpErrorResponse) {
+          if (err instanceof HttpErrorResponse && !err.url.includes('/auth/login')) {
             let text = (err.error && err.error.message) ? err.error.message : err.statusText;
            // (<any>window).globalEvents.emit('open error dialog', text);
             this.router.navigate(['/auth/login']);

@@ -1,6 +1,6 @@
 
 <div fxLayout="row" fxLayoutAlign="center" class="login">
-  <div fxFlex="40%">
+  <div fxFlex="40%" fxFlex.xs="90%" fxFlex.sm="70%">
     <mat-toolbar color="primary">
         <span>Login</span>
     </mat-toolbar>
@@ -16,9 +16,15 @@
             </mat-form-field>
 
             <mat-card-actions class="actions">
-                <button mat-raised-button (click)="login()" color="accent">Submit</button>
-                <span>Don't have an account ? <a [routerLink]="['/auth/register']" >register</a> here</span>
-              </mat-card-actions>
+              <mat-spinner [diameter]="15" *ngIf="processing" class="spinner"></mat-spinner>
+              <button mat-raised-button [disabled]="processing" (click)="login()" color="accent">
+                Submit
+              </button>
+              <span>Don't have an account ? <a [routerLink]="['/auth/register']" >register</a> here</span>
+            </mat-card-actions>
+            
+            <span class="error-msg" *ngIf="errorMsg">{{errorMsg}}</span>
+            
           </div>
         </div>
       </mat-card-content>
