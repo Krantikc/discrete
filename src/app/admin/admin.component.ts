@@ -40,9 +40,6 @@ export class AdminComponent implements OnInit {
     this.userService.getUsers()
       .subscribe(data => {
         this.usersList = data.usersList;
-        for (let i = 0; i < 20; i++) {
-          this.usersList.push(data.usersList[0]);
-        }
         this.displayedColumns = this.columnNames.map(x => x.id);
       });
   }

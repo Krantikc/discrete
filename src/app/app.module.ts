@@ -16,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { ReposComponent } from './dashboard/repos/repos.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ReposComponent } from './dashboard/repos/repos.component';
     DashboardComponent,
     UserComponent,
     ReposComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

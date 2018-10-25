@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { HttpClient } from '@angular/common/http';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-repos',
@@ -12,16 +12,15 @@ export class ReposComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ReposComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
-              private http: HttpClient) { }
+              private dashboardService: DashboardService) { }
 
   close() {
     this.dialogRef.close();
   }
 
   ngOnInit() {
-    const repoUrl = this.data.user.repos_url;
     this.repos = [];
-    this.http.get(repoUrl).subscribe((repos: any) => {
+    this.dashboardService.getGITUserRepos(this.data.user).subscribe((repos: any) => {
       this.repos = repos;
     });
   }

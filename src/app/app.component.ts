@@ -48,9 +48,9 @@ export class AppComponent implements OnInit {
   public ngOnInit() {
 
     // init this.user on startup
-    this.authService.me().subscribe(data => {
-      this.user = data.user;
-    });
+    // this.authService.me().subscribe(data => {
+    //   this.user = data.user;
+    // });
 
     // update this.user after login/register/logout
     this.userSubscription = this.authService.$userSource.subscribe((user) => {

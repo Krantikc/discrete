@@ -1,0 +1,42 @@
+<div class="container dashboard">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <div fxFlex="100%" class="mat-elevation-z8"> 
+    
+      <div fxLayout='row wrap' fxLayoutAlign="center" fxLayoutGap="10px">
+        <div  fxFlex="5%" fxFlex.sm="40%" fxFlex.xs="70%" *ngFor="let user of gitUsers | slice:91:100" 
+              class="user bg-color-accent" [style.opacity]="user.style?.opacity">
+          <div class="img-wrap" >
+            <img mat-card-md-image [src]="user.avatar_url" class="avatar">
+          </div>
+        </div> 
+      </div>
+
+      <div fxLayout='row wrap' fxLayoutAlign="center" fxLayoutGap="10px">
+        <div  fxFlex="5%" fxFlex.sm="40%" fxFlex.xs="70%" *ngFor="let user of gitUsers | slice:0:30" 
+              class="user bg-color-accent" [style.opacity]="user.style?.opacity">
+          <div class="img-wrap">
+            <img mat-card-md-image [src]="user.avatar_url" class="avatar">
+          </div>
+        </div> 
+      </div>
+
+      <div fxLayout='row wrap' fxLayoutAlign="center" fxLayoutGap="10px">
+        <div  fxFlex="5%" fxFlex.sm="40%" fxFlex.xs="70%" *ngFor="let user of gitUsers | slice:31:60" class="user bg-color-accent" [style.opacity]="user.style?.opacity">
+          <div class="img-wrap" >
+            <img mat-card-md-image [src]="user.avatar_url" class="avatar">
+          </div>
+        </div> 
+      </div>
+
+      <div fxLayout='row wrap' fxLayoutAlign="center" fxLayoutGap="10px">
+        <div  fxFlex="5%" fxFlex.sm="40%" fxFlex.xs="70%" *ngFor="let user of gitUsers | slice:61:90" class="user bg-color-accent" [style.opacity]="user.style?.opacity">
+          <div class="img-wrap">
+            <img mat-card-md-image [src]="user.avatar_url" class="avatar">
+          </div>
+        </div> 
+      </div>
+
+      
+    </div>
+  </div>
+</div>

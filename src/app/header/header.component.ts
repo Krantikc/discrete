@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() themeChange: any;
 
-  selectedTheme = 'pink';
+  selectedTheme = localStorage.getItem('theme') || 'teal';
 
   constructor(
     private authService: AuthService,

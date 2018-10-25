@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth-guard.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [{
+  path: '',
+  component: HomeComponent
+}, {
   path: 'dashboard',
   component: DashboardComponent,
   canActivate: [AuthGuard]
@@ -14,10 +18,6 @@ const routes: Routes = [{
   path: 'admin',
   loadChildren: 'app/admin/admin.module#AdminModule',
   canActivate: [AuthGuard]
-}, {
-  path: '',
-  redirectTo: '/auth/login',
-  pathMatch: 'full'
 }];
 
 @NgModule({
