@@ -14,6 +14,7 @@ class GithubService {
       return resp.json(users);
     }
     
+    // List user repos
     async listGITUserRepos(req, resp) {
       let repos = [];
       const username = req.params.username;
