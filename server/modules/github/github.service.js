@@ -5,7 +5,7 @@ const config = require('../../config/config');
 
 class GithubService {
     
-   // List users
+   // List users 
     async listGITUsers(req, resp) {
       const page = req.query.page || 1;
       const pageSize = req.query.pageSize || 100;
