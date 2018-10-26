@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endPoint: 'https://quiet-harbor-65124.herokuapp.com/api/'
+  endPoint: 'https://safe-castle-71969.herokuapp.com/api/'
 };
