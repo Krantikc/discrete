@@ -1,44 +1,86 @@
 @import '../../themes.scss';
 header {
-      height: 64px;
-      //position: fixed;
-      z-index: 999;
-      width: 100%  !important;
-      top: 0;
-      position: fixed;
-    .logo {
-      background-image: url('../../assets/logo.jpg');
-      width: 50px;
-      height: 50px;
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
-    .example-spacer {
-      flex: 1 1 auto;
-    }
-    .links {
-      color: white;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 15px;
-      font-weight: initial;
-      letter-spacing: -1px;
-      line-height: 1;
-      text-align: center;
-      padding: 15px;
-      &.side {
-        padding: 0 14px;
-      }
-    }
-    .mat-toolbar {
-     // background: $accent;
-     box-shadow: 3px 3px 12px #292929;
-    }
-    .mat-icon {
-      vertical-align: middle;
-      margin: 0 5px;
-    }
-    a {
+  height: 64px;
+  z-index: 999;
+  width: 100%  !important;
+  top: 0;
+  position: fixed;
+
+  .fork {
+    position: absolute;
+    text-decoration: none;
+    background: #713f3f;
+    padding: 2px 6px;
+    color: #fff;
+    left: 48%;
+    top: 5px;
+    box-shadow: 1px 1px 14px;
+    border-radius: 5px;
+  }
+
+  .help {
+    position: fixed;
+    right: -350px;
+    padding: 15px;
+    width: 320px;
+    top: 90px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    transition: all ease-in 0.4s;
+
+    .btn {
+      position: absolute;
+      margin-left: -64px;
+      margin-top: -14px;
+      font-size: 48px;
+      background: #21a599;
+      width: 48px;
+      height: 48px;
       cursor: pointer;
+      box-shadow: -3px 2px 11px #292929;
+    }
+    .credentials {
+      border: 1px solid #EBEBEB;
+      padding: 5px;
     }
   }
+  .slideIn {
+    right: 0px !important;
+  }
+    
+  .logo {
+    background-image: url('../../assets/logo.jpg');
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .links {
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    font-weight: initial;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+    padding: 15px;
+    &.side {
+      padding: 0 14px;
+    }
+  }
+  .mat-toolbar {
+    // background: $accent;
+    box-shadow: 3px 3px 12px #292929;
+  }
+  .mat-icon {
+    vertical-align: middle;
+    margin: 0 5px;
+  }
+  a {
+    cursor: pointer;
+  }
+}
  

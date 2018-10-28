@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
 
   selectedTheme = localStorage.getItem('theme') || 'teal';
 
+  help = false;
+
   constructor(
     private authService: AuthService,
     private router: Router,

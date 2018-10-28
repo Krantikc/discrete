@@ -1,4 +1,23 @@
 <header>
+  <a class="fork" href="https://github.com/Krantikc/discrete" target="_blank">Github Repo</a>
+  <div class="help" [ngClass]="{'slideIn': help}">
+    <mat-icon class="btn" (click)="help = !help">help</mat-icon> 
+    <p>
+      You can
+      <a class="links side" [routerLink]="['/auth/register']" *ngIf="!user">register</a>
+      if you dont have account
+     </p> 
+
+     <div>
+      Oops!! If you don't wish to signup you can use following credentials to login
+      <div class="credentials">
+        <div>Username:</div>
+        <div><b>guest@discrete.io</b></div>
+        <div>Password:</div>
+        <div><b>password123</b></div>
+      </div>
+    </div>
+  </div>
   <mat-toolbar color="primary">
     <a class="tabs" 
       matRipple
