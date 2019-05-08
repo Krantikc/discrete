@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { TokenStorage } from './token.storage';
 import { TooltipComponent } from '@angular/material';
-import { environment } from '../../environments/environment';
+import { environment } from '@env/environment';
 
 @Injectable()
 export class AuthService {
