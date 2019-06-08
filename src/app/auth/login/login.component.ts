@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { AuthGuard } from '../auth-guard.service';
 import 'rxjs/add/operator/catch';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -30,8 +31,10 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.errorMsg = null;
     this.processing = true;
-    this.authService.login(this.email, this.password)
-    .subscribe(
+    let loginSubscription: Observable<any>;
+    loginSubscription = this.authService.login(this.email, this.password);
+
+    loginSubscription.subscribe(
       (data: any) => {
         if (data instanceof HttpErrorResponse) {
           this.errorMsg = 'Invalid email or password';

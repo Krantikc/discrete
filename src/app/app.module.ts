@@ -17,6 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { ReposComponent } from './dashboard/repos/repos.component';
 import { HomeComponent } from './home/home.component';
+import { SpeechInterpreterComponent } from './components/speech-interpreter/speech-interpreter.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomeComponent } from './home/home.component';
     UserComponent,
     ReposComponent,
     HomeComponent,
+    SpeechInterpreterComponent,
   ],
   imports: [
     BrowserModule,

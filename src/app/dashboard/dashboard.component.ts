@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './dashboard.service';
 import { MatDialog } from '@angular/material';
 import { ReposComponent } from './repos/repos.component';
+import { SpeechInterpreterService } from "@app/components/speech-interpreter/speech-interpreter.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +13,8 @@ export class DashboardComponent implements OnInit {
 
   gitUsers: any[] = [];
   constructor(private dashboardService: DashboardService,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private speechInterpreterService: SpeechInterpreterService) {}
 
   showRepos(user: any): void {
     const dialogRef = this.dialog.open(ReposComponent, {
@@ -23,6 +25,10 @@ export class DashboardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  speechRecognition() {
+    this.speechInterpreterService.interpretSpeech('');
   }
 
   ngOnInit() {
