@@ -9,6 +9,10 @@ class GithubController {
   listGITUserRepos(req, resp) {
     return GithubService.listGITUserRepos(req, resp);
   }
+
+  listGITUserReposByQuery(req, resp) {
+    return GithubService.listGITUserReposByQuery(req, resp);
+  }
 }
 
 module.exports = new GithubController();

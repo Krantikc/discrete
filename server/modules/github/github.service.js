@@ -24,6 +24,18 @@ class GithubService {
       repos = await response.json();
       return resp.json(repos);
     }
+
+    async listGITUserReposByQuery(req, resp) {
+      let repos = [];
+      const username = req.params.username;
+      const query = req.query;
+      const url = `https://api.github.com/users/${username}/repos?q=${query}&client_id=${config.clientID}&client_secret=${config.clientSectret}`;
+      const response = await fetch(url);
+      repos = await response.json();
+      return resp.json(repos);
+    }
+
+    
 }
 
 module.exports = new GithubService();

@@ -44,9 +44,12 @@ const config = {
   frontend: envVars.MEAN_FRONTEND || 'angular',
   mongo: {
     host: envVars.MONGO_HOST,
-    port: envVars.MONGO_PORT
+    port: envVars.MONGO_PORT,
+    db: envVars.MONGO_DB,
+    user: envVars.MONGO_USER || undefined,
+    password: envVars.MONGO_PASSWORD || undefined,
   },
-  tokenExpiration: envVars.TOKEN_EXPIRATION,
+  tokenExpiration: envVars.TOKEN_EXPIRATION || (5 * 60 * 60 * 1000), // 5 mins
   clientID: envVars.CLIENT_ID,
   clientSectret: envVars.CLIENT_SECRET
 };
