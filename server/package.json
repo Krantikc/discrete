@@ -37,7 +37,7 @@
     "passport-jwt": "4.0.0",
     "passport-local": "1.0.0",
     "swagger-ui-express": "3.0.9",
-    "node-fetch": "2.2.0"
+    "node-fetch": "2.6.1"
   },
   "devDependencies": {
     "node-env-run": "^3.0.2"
