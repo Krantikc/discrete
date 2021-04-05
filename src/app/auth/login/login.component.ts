@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
@@ -6,6 +6,10 @@ import { AuthGuard } from '../auth-guard.service';
 import 'rxjs/add/operator/catch';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService as SocialAuthService } from "angularx-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { TokenStorage } from '../token.storage';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +19,8 @@ import { Observable } from 'rxjs';
 export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router,
-              private authGuard: AuthGuard) { }
+              private authGuard: AuthGuard, private socialAuthService: SocialAuthService,
+              private authToken: TokenStorage) { }
 
   email: string;
   password: string;
@@ -23,9 +28,33 @@ export class LoginComponent implements OnInit {
   processing: boolean;
 
   ngOnInit() {
+    
     if (this.authGuard.canActivate()) {
       this.router.navigate(['/dashboard']);
     }
+
+    this.socialAuthService.authState.subscribe((user: any) => {
+      if (user) {
+        console.log(user);
+        let newUser = {
+          email: user.email,
+          fullname: user.name,
+          roles: []
+        }
+        this.authService.setUser(newUser);
+        this.authToken.saveToken(user.idToken);
+        this.router.navigate(['/dashboard']);
+      }
+    });
+   
+  }
+
+  signInWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  signInWithFB(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
   login(): void {

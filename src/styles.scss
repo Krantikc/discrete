@@ -60,3 +60,16 @@ body {
   opacity: .3;
   transition: 0s;
 }
+
+.icon {
+  width: 18px;
+  height: 18px;
+  background-size: 18px;
+  margin: 5px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.icon-google {
+  background-image: url('./assets/icons/google-icon.svg');
+}

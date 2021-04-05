@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService as SocialAuthService } from "angularx-social-login";
 
 import { AuthService } from '../auth/auth.service';
 import { Subject } from 'rxjs';
@@ -23,15 +24,19 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private socialAuthService: SocialAuthService
   ) { }
 
   ngOnInit() {
   }
 
-  logout(): void {
-    this.authService.signOut();
-    this.navigate('/auth/login');
+  async logout() {
+    await this.authService.signOut();
+    console.log('Singn Out');
+    setTimeout(() => {
+      this.navigate('/auth/login');
+    }, 300);
   }
 
   navigate(link): void {

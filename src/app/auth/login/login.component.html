@@ -6,7 +6,7 @@
     </mat-toolbar>
     <mat-card>
       <mat-card-content>
-        <div  fxLayout="row" fxLayoutAlign="center">
+        <form (ngSubmit)="login()" fxLayout="row" fxLayoutAlign="center">
           <div fxFlex="80%" class="login-container">
             <mat-form-field appearance="legacy">
               <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
@@ -17,16 +17,20 @@
 
             <mat-card-actions class="actions">
               <mat-spinner [diameter]="15" *ngIf="processing" class="spinner"></mat-spinner>
-              <button mat-raised-button [disabled]="processing" (click)="login()" color="accent">
+              <button mat-raised-button [disabled]="processing"  color="accent">
                 Submit
               </button>
               <span>Don't have an account ? <a [routerLink]="['/auth/register']" >register</a> here</span>
+
+              <button mat-raised-button (click)="signInWithGoogle()" class="gsignin-btn">
+                <span class="icon icon-google"></span>Signin With Google
+              </button>
             </mat-card-actions>
             
             <span class="error-msg" *ngIf="errorMsg">{{errorMsg}}</span>
             
           </div>
-        </div>
+        </form>
       </mat-card-content>
       
     </mat-card>

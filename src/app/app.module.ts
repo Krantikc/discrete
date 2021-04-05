@@ -19,6 +19,28 @@ import { ReposComponent } from './dashboard/repos/repos.component';
 import { HomeComponent } from './home/home.component';
 import { SpeechInterpreterComponent } from './components/speech-interpreter/speech-interpreter.component';
 
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from 'angularx-social-login';
+
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider("257537552322155")
+      },
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider('97977259925-sf55guha86es7foouf0q28l9n1bp63li.apps.googleusercontent.com')
+      },
+    ]
+  );
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +59,8 @@ import { SpeechInterpreterComponent } from './components/speech-interpreter/spee
     SharedModule,
     AuthModule,
     AdminModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocialLoginModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -47,6 +70,9 @@ import { SpeechInterpreterComponent } from './components/speech-interpreter/spee
     provide: HTTP_INTERCEPTORS,
     useClass: CatchErrorInterceptor,
     multi: true,
+  }, {
+    provide: AuthServiceConfig,
+    useFactory: getAuthServiceConfigs,
   }],
   entryComponents: [ReposComponent],
   bootstrap: [AppComponent]

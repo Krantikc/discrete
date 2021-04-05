@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { AuthService as SocialAuthService } from "angularx-social-login";
 
 import { TokenStorage } from './token.storage';
 import { TooltipComponent } from '@angular/material';
@@ -10,7 +11,8 @@ import { environment } from '@env/environment';
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient, private token: TokenStorage) {}
+  constructor(private http: HttpClient, private token: TokenStorage, 
+              private socialAuthService: SocialAuthService) {}
 
   public $userSource = new Subject<any>();
 
@@ -74,9 +76,15 @@ export class AuthService {
     });
   }
 
-  signOut(): void {
+  async signOut() {
     this.token.signOut();
     this.setUser(null);
     delete (<any>window).user;
+    this.socialAuthService.authState.subscribe((user: any) => {
+      if (user) {
+        this.socialAuthService.signOut();
+      }
+    });
+    return true;
   }
 }
