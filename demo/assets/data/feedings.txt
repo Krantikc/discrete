@@ -1,0 +1,8 @@
+{
+    "SEARCH": {
+      "order": 1, // Order of key appearance
+      "priority": 1, // Priority between 2 ambigous opposite words (eg, SEARCH & CLEAR)
+      "keys": ["find", "find for", "search", "search for", "get", "get results"] // voice inputs
+    },
+    "DATE_RANGE": ["from", ""]
+}
