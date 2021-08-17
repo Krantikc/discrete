@@ -5,7 +5,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
-
+ 
 import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
 import { AuthHeaderInterceptor } from './interceptors/header.interceptor';
@@ -24,7 +24,9 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
-
+import { WeatherModule } from 'weather';
+import { NgVoiceInputsComponent, NgVoiceInputsModule } from "ng-voice-inputs";
+ 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
     [
@@ -60,7 +62,9 @@ export function getAuthServiceConfigs() {
     AuthModule,
     AdminModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    WeatherModule,
+    NgVoiceInputsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

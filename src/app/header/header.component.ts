@@ -21,6 +21,34 @@ export class HeaderComponent implements OnInit {
 
   help = false;
 
+  optionsText = {
+    type: 'text'
+  }
+
+  optionsDate = {
+    type: 'date'
+  }
+
+  optionsNumber = {
+    type: 'number'
+  }
+
+  optionsAddress = {
+    type: 'address'
+  }
+  
+  optionsSelect = {
+    type: 'select'
+  }
+
+  styleOpts = { 
+    iconStart: 'icon icon-mic',
+    iconParse: 'icon icon-mic', 
+    animationParse: 'parse-green'
+  }
+
+  formData: any;
+
   constructor(
     private authService: AuthService,
     private router: Router,
