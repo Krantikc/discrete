@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endPoint: 'https://safe-castle-71969.herokuapp.com/api/'
+  endPoint: 'http://35.168.7.216:4040/api'
 };
