@@ -44,41 +44,40 @@ export function getAuthServiceConfigs() {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    DashboardComponent,
-    UserComponent,
-    ReposComponent,
-    HomeComponent,
-    SpeechInterpreterComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    RouterModule,
-    SharedModule,
-    AuthModule,
-    AdminModule,
-    AppRoutingModule,
-    SocialLoginModule,
-    // WeatherModule,
-    NgVoiceInputsModule
-  ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthHeaderInterceptor,
-    multi: true,
-  }, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: CatchErrorInterceptor,
-    multi: true,
-  }, {
-    provide: AuthServiceConfig,
-    useFactory: getAuthServiceConfigs,
-  }],
-  entryComponents: [ReposComponent],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        DashboardComponent,
+        UserComponent,
+        ReposComponent,
+        HomeComponent,
+        SpeechInterpreterComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        RouterModule,
+        SharedModule,
+        AuthModule,
+        AdminModule,
+        AppRoutingModule,
+        SocialLoginModule,
+        // WeatherModule,
+        NgVoiceInputsModule
+    ],
+    providers: [{
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthHeaderInterceptor,
+            multi: true,
+        }, {
+            provide: HTTP_INTERCEPTORS,
+            useClass: CatchErrorInterceptor,
+            multi: true,
+        }, {
+            provide: AuthServiceConfig,
+            useFactory: getAuthServiceConfigs,
+        }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
