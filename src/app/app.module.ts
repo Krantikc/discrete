@@ -24,7 +24,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
-import { WeatherModule } from 'weather';
+// import { WeatherModule } from 'weather';
 import { NgVoiceInputsComponent, NgVoiceInputsModule } from "ng-voice-inputs";
  
 export function getAuthServiceConfigs() {
@@ -63,7 +63,7 @@ export function getAuthServiceConfigs() {
     AdminModule,
     AppRoutingModule,
     SocialLoginModule,
-    WeatherModule,
+    // WeatherModule,
     NgVoiceInputsModule
   ],
   providers: [{

@@ -19,7 +19,11 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
-              { "glob": "feedings.json", "input": "./", "output": "./assets/" }
+              {
+                "glob": "feedings.json",
+                "input": "./",
+                "output": "./assets/"
+              }
             ],
             "styles": [
               "src/styles.scss",
@@ -130,5 +134,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
