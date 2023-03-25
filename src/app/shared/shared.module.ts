@@ -5,44 +5,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 
-import {
-  MatToolbarModule,
-  MatMenuModule,
-  MatTabsModule,
-  MatDividerModule,
-  MatCardModule,
-  MatListModule,
-  MatExpansionModule,
-  MatButtonModule,
-  MatIconModule,
-  MatDialogModule,
-  MatInputModule,
-  MatSnackBarModule,
-  MatSidenavModule,
-  MatTreeModule,
-  MatProgressBarModule,
-  MatFormFieldModule,
-  MatSelectModule,
-  MatTableModule,
-  MatAutocompleteModule,
-  MatBadgeModule,
-  MatBottomSheetModule,
-  MatButtonToggleModule,
-  MatCheckboxModule,
-  MatChipsModule,
-  MatStepperModule,
-  MatDatepickerModule,
-  MatGridListModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSortModule,
-  MatTooltipModule
-} from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   // imports: [
@@ -91,44 +64,18 @@ import {
   // ],
   exports: [
     MatToolbarModule,
-    MatMenuModule,
-    MatTabsModule,
-    MatDividerModule,
-    MatCardModule,
-    MatListModule,
-    MatExpansionModule,
-    MatButtonModule,
     MatIconModule,
-    MatDialogModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatButtonModule,
     MatInputModule,
-    MatSnackBarModule,
+    MatCardModule,
+    MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSidenavModule,
-    MatTreeModule,
-    MatProgressBarModule,
-    MatFormFieldModule,
-    MatSelectModule,
     FlexLayoutModule,
     MatTableModule,
-    MatAutocompleteModule,
-    MatBadgeModule,
-    MatBottomSheetModule,
-    MatButtonToggleModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatGridListModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSortModule,
-    MatTooltipModule,
     CdkTableModule,
     CdkTreeModule
   ],

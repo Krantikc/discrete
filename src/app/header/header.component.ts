@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService as SocialAuthService } from "angularx-social-login";
+import { SocialAuthService } from "angularx-social-login";
 
 import { AuthService } from '../auth/auth.service';
 import { Subject } from 'rxjs';

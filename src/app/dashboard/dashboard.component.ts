@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './dashboard.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ReposComponent } from './repos/repos.component';
 import { SpeechInterpreterService } from "@app/components/speech-interpreter/speech-interpreter.service";
 

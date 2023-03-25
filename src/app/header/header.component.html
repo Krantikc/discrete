@@ -19,17 +19,6 @@
         
 
         <form class="section left-section" #form="ngForm" (ngSubmit)="submitForm(form)">
-          <ng-voice-input></ng-voice-input> 
-          <div class="row">
-            <input [vuiInput]="optionsDate" type="date" name="fromDate" ngModel>
-              
-              <mat-form-field  class="col-6">
-                  <mat-label>Choose to date</mat-label>
-                  <input matInput [matDatepicker]="pickerT" [vuiInput]="optionsDate" name="toDate" ngModel>
-                  <mat-datepicker-toggle matSuffix [for]="pickerT"></mat-datepicker-toggle>
-                  <mat-datepicker #pickerT ></mat-datepicker>
-              </mat-form-field>
-          </div>
           <div class="row">
               <mat-form-field  class="col-6">
                   <mat-label>First Name</mat-label>
@@ -72,13 +61,9 @@
   <mat-toolbar color="primary">
     <a class="tabs" 
       matRipple
-      [matRippleColor]="'rgba(255,255,255,0.3)'"
-      [matRippleRadius]="40"
       *ngIf="!user" [routerLink]="['/']">Home</a>
     <a class="tabs" 
     matRipple
-    [matRippleColor]="'rgba(255,255,255,0.3)'"
-    [matRippleRadius]="40"
     *ngIf="user" [routerLink]="['/dashboard']"><mat-icon>dashboard</mat-icon>Dashboard</a>
     <span class="example-spacer"></span>
     <div>

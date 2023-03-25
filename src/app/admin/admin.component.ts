@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from '../user/user.service';
 import { CdkTableModule } from '@angular/cdk/table';
 import { DataSource } from '@angular/cdk/table';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-admin',

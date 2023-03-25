@@ -6,7 +6,7 @@ import { AuthGuard } from '../auth-guard.service';
 import 'rxjs/add/operator/catch';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService as SocialAuthService } from "angularx-social-login";
+import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { TokenStorage } from '../token.storage';
 
