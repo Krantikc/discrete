@@ -5,18 +5,18 @@ const debug = require('debug')('express-mongoose-es6-rest-api:index');
 const config = require('./config');
 
 // connect to mongo db
-// const mongoUri = `mongodb://${config.mongo.user}:${config.mongo.password}@${config.mongo.host}:${config.mongo.port}/${config.mongo.db}`;
+ const mongoUri = `mongodb://${config.mongo.user}:${config.mongo.password}@${config.mongo.host}:${config.mongo.port}/${config.mongo.db}`;
 
 // With +srv - port is not supported
-const mongoUri = `mongodb+srv://${config.mongo.user}:${config.mongo.password}@${config.mongo.host}/${config.mongo.db}`;
+// const mongoUri = `mongodb+srv://${config.mongo.user}:${config.mongo.password}@${config.mongo.host}/${config.mongo.db}`;
 
 // const mongoUri = 'mongodb://ds339968.mlab.com:39968/trektale';
+
+//  const mongoUri = 'mongodb://localhost:27017/api?retryWrites=true&ssl=false';
 console.log(config.mongo.user, config.mongo.password)
-mongoose.connect(mongoUri, { 
-  user: config.mongo.user || undefined,
-  pass: config.mongo.password || undefined,
+mongoose.connect(mongoUri, {
   // db: config.mongo.db,
-  keepAlive: 1, 
+  keepAlive: 1,
   // useNewUrlParser: true,
   // useUnifiedTopology: true,
   // useCreateIndex: true,
