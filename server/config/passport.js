@@ -2,7 +2,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const User = require('../models/user.model');
 const config = require('./config');

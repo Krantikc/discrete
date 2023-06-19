@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const Joi = require('joi');
 const fetch = require("node-fetch");
 const config = require('../../config/config');
