@@ -5,7 +5,8 @@ const debug = require('debug')('express-mongoose-es6-rest-api:index');
 const config = require('./config');
 
 // connect to mongo db
- const mongoUri = `mongodb://${config.mongo.user}:${config.mongo.password}@${config.mongo.host}:${config.mongo.port}/${config.mongo.db}`;
+const { user, password, host, port, db } = config.mongo;
+ const mongoUri = `mongodb+srv://${user}:${password}@${host}${port ? ':' + port : ''}/${db}`;
 
 // With +srv - port is not supported
 // const mongoUri = `mongodb+srv://${config.mongo.user}:${config.mongo.password}@${config.mongo.host}/${config.mongo.db}`;
@@ -23,13 +24,13 @@ mongoose.connect(mongoUri, {
   connectTimeoutMS: 40000
 });
 mongoose.connection.on('connected', () => {
-  console.log('Connection was successful!!!!');
+  console.log('MongoDB Connection was successful!!!!');
 });
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);
 });
 mongoose.connection.on('diconnected', () => {
-  console.log('Connection was successful!!!!');
+  console.log('MongoDB Connection was disconnected!!!!');
 });
 
 // print mongoose logs in dev env

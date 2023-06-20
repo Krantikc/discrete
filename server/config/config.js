@@ -20,8 +20,7 @@ const envVarsSchema = Joi.object({
     .description('JWT Secret required to sign'),
   MONGO_HOST: Joi.string().required()
     .description('Mongo DB host url'),
-  MONGO_PORT: Joi.number()
-    .default(27017),
+  MONGO_PORT: Joi.number(),
   TOKEN_EXPIRATION: Joi.string()
   .default('20s'),
   CLIENT_ID: Joi.string().required()
